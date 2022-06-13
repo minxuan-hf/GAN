@@ -103,6 +103,7 @@ if cuda:
     generator.cuda()
     discriminator.cuda()
 
+# 载入自定义数据集
 dataset = "."
 faces_directory = os.path.join(dataset, 'ROP_train445_resize224')
 
@@ -230,6 +231,8 @@ for i in g_loss_list:
     g.writelines(str(i) + '\n')
 g.close()
 
+# 保存最终的训练模型
 torch.save(generator, "220607_ROP_models/generator_rop.pth")
+# 生成器和鉴别器损失图像
 plot_show(d_loss_list, "The Loss of Discriminator", "220607_ROP_resultspic/Discriminator_Loss.png")
 plot_show(g_loss_list, "The Loss of Generator", "220607_ROP_resultspic/Generator_Loss.png")
