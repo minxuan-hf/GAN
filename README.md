@@ -13,5 +13,8 @@ my_dataset.py
 generator.py
 利用保存的训练好的网络模型，生成多张GAN图片
 
+plot_test.py
+绘制图像
+
 draw_photos.py
 读取txt文本文档，利用plt生成损失函数图像
