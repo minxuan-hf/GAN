@@ -108,7 +108,7 @@ if cuda:
 
 # 载入自定义数据集
 dataset = "."   # 当前根目录
-# 'ROP_train445_resize224' ---> 训练图片所在路径
+# 'ROP_train445_resize224' ---> 训练集所在路径
 rop_directory = os.path.join(dataset, 'ROP_train445_resize224')
 
 image_transforms = {
