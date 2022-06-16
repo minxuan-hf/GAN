@@ -9,6 +9,7 @@ class myDataset(Dataset):
         # transform：初始化方法
         self.data_dir = data_dir
         self.transform = transform
+        # 训练集图片为png格式，若为jpg格式，可对应修改为x.endswith("jpg")
         self.img_names = [name for name in list(filter(lambda x: x.endswith(".png"), os.listdir(self.data_dir)))]
 
     def __getitem__(self, index):
