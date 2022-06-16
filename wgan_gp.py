@@ -18,8 +18,11 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.autograd as autograd
 import torch
-from my_dataset import myDataset
+
 import matplotlib.pyplot as plt
+
+# 自定义方法
+from my_dataset import myDataset
 from plot_test import plot_show
 
 os.makedirs("220607_ROP_images", exist_ok=True)
@@ -104,8 +107,9 @@ if cuda:
     discriminator.cuda()
 
 # 载入自定义数据集
-dataset = "."
-faces_directory = os.path.join(dataset, 'ROP_train445_resize224')
+dataset = "."   # 当前根目录
+# 'ROP_train445_resize224' ---> 训练图片所在路径
+rop_directory = os.path.join(dataset, 'ROP_train445_resize224')
 
 image_transforms = {
     'ROP_train445_resize224': transforms.Compose([
@@ -117,11 +121,11 @@ image_transforms = {
 
 data = {
     'ROP_train445_resize224':
-        myDataset(data_dir=faces_directory, transform=image_transforms['ROP_train445_resize224']),
+        myDataset(data_dir=rop_directory, transform=image_transforms['ROP_train445_resize224']),
 }
 
 dataloader = DataLoader(data['ROP_train445_resize224'], batch_size=opt.batch_size, shuffle=True)
-faces_data_size = len(data['ROP_train445_resize224'])
+rop_data_size = len(data['ROP_train445_resize224'])
 
 # Optimizers
 optimizer_G = torch.optim.Adam(generator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
