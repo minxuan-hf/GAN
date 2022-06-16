@@ -21,5 +21,5 @@ def read_txt(file_path):
         txt.append(float(line.strip()))
     return txt
 
-
-plot_show(read_txt('220607_ROP_txt\g.txt'), "Generator_Loss", "220607_ROP_resultspic\Generator_Loss.png")
+if __name__=="__main__":
+    plot_show(read_txt('220607_ROP_txt\g.txt'), "Generator_Loss", "220607_ROP_resultspic\Generator_Loss.png")
